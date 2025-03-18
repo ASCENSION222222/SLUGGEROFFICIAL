@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>slugger official website</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="#home">home</a>
+        <a href="#about">about</a>
+        <a href="#games">games</a>
+        <a href="#news">news</a>
+        <a href="#why">why slugger</a>
+        <a href="#contact">contact</a>
+      </nav>
+    </header>
+
+    <section id="home" class="hero section in-view">
+      <div class="content">
+        <h1>welcome to slugger official website,</h1>
+        <p>the ultimate roblox streamer, playing fisch, piggy, and dandys world, join the revolution, experience the thrill, be inspired,</p>
+        <a href="https://www.youtube.com/@ProSlugger5000" class="btn">subscribe now,</a>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="content">
+        <h2>about slugger,</h2>
+        <p>slugger is a dedicated, innovative, dynamic streamer, known for impeccable gameplay, strategic prowess, engaging commentary, and a vibrant community,</p>
+        <p>every stream is an immersive adventure, filled with humor, excitement, and creative challenges,</p>
+        <p>learn tips, join interactive sessions, and explore new ways to master roblox games,</p>
+      </div>
+    </section>
+
+    <section id="games" class="section">
+      <div class="content">
+        <h2>games i play,</h2>
+        <p>fisch, piggy, and dandys world, each game offers unique challenges, intense action, and endless fun, step into a world of creativity, strategy, and excitement,</p>
+        <div class="game-list">
+          <div class="game">
+            <!-- using provided image for a fish image -->
+            <img src="https://th.bing.com/th/id/OIP.GABx4y9EB27qdYc67cl3uwHaDt?rs=1&pid=ImgDetMain" alt="fisch,">
+            <p>fisch, dive into an underwater adventure, overcome puzzles, and complete the bestiary!</p>
+          </div>
+          <div class="game">
+            <!-- provided piggy image -->
+            <img src="https://th.bing.com/th/id/R.279e91d4fa734bd180e9aaf5bf6af4ac?rik=8W%2b4tPtCBWVUPg&pid=ImgRaw&r=0" alt="piggy,">
+            <p>piggy, experience thrilling escapes, solve mysteries, and uncover hidden secrets!</p>
+          </div>
+          <div class="game">
+            <!-- provided dandys world image -->
+            <img src="https://cdn.thenerdstash.com/wp-content/uploads/2024/07/dandys-world-roblox-image.jpg" alt="dandys world,">
+            <p>dandys world, research twisteds and try not to die on this goofy elevator!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="news" class="section">
+      <div class="content">
+        <h2>news,</h2>
+        <p>stay updated with the latest happenings, new game releases, upcoming streams, and special events,</p>
+        <p>slugger regularly hosts interactive sessions, giveaways, and community contests,</p>
+        <p>follow the news section for detailed updates, behind the scenes stories, and exclusive interviews,</p>
+      </div>
+    </section>
+
+    <section id="why" class="section">
+      <div class="content">
+        <h2>why slugger is the best,</h2>
+        <p>slugger stands out for unmatched passion, technical skill, and engaging personality,</p>
+        <p>every stream is a display of expert tactics, quick wit, and lively entertainment,</p>
+        <p>his mastery of roblox games and constant innovation make him a true leader in the gaming community,</p>
+        <p>experience excitement, learn new moves, and join a community that celebrates gaming excellence,</p>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="content">
+        <h2>contact,</h2>
+        <p>stay connected, join the community, follow slugger on social media, and never miss an update,</p>
+        <p>for inquiries, collaborations, and more information, reach out via email or social channels,</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>slugger official website, all rights reserved,</p>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        // intersection observer for section animations
+        var sections = document.querySelectorAll("section");
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+            }
+          });
+        }, { threshold: 0.2 });
+        sections.forEach(function(section) {
+          observer.observe(section);
+        });
+
+        // smooth scrolling for nav links
+        var header = document.querySelector("header");
+        var headerHeight = header.offsetHeight;
+        document.querySelectorAll("nav a").forEach(function(link) {
+          link.addEventListener("click", function(e) {
+            e.preventDefault();
+            var targetId = this.getAttribute("href");
+            var target = document.querySelector(targetId);
+            if (target) {
+              var targetPosition = target.offsetTop - headerHeight;
+              window.scrollTo({
+                top: targetPosition,
+                behavior: "smooth"
+              });
+            }
+          });
+        });
+
+        // header shrink effect on scroll
+        window.addEventListener("scroll", function() {
+          if (window.pageYOffset > 50) {
+            header.classList.add("scrolled");
+          } else {
+            header.classList.remove("scrolled");
+          }
+        });
+
+        // create back-to-top button
+        var backToTop = document.createElement("button");
+        backToTop.id = "back-to-top";
+        backToTop.innerHTML = "&#8679;";
+        backToTop.style.display = "none";
+        // minimal inline styles for the button
+        backToTop.style.position = "fixed";
+        backToTop.style.bottom = "20px";
+        backToTop.style.right = "20px";
+        backToTop.style.padding = "10px 15px";
+        backToTop.style.fontSize = "1.5rem";
+        backToTop.style.background = "#d4af37";
+        backToTop.style.color = "#000";
+        backToTop.style.border = "none";
+        backToTop.style.cursor = "pointer";
+        backToTop.style.zIndex = "1000";
+        document.body.appendChild(backToTop);
+
+        backToTop.addEventListener("click", function() {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        // show/hide back-to-top button on scroll
+        window.addEventListener("scroll", function() {
+          if (window.pageYOffset > 300) {
+            backToTop.style.display = "block";
+          } else {
+            backToTop.style.display = "none";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
